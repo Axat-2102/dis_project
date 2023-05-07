@@ -1,3 +1,5 @@
+# IaC - Pulumi vs Terraform
+
 # Terraform Project
 
 This Terraform project creates an AWS infrastructure with a VPC, a public subnet, an internet gateway, a route table, a security group, and an EC2 instance with a web server.
