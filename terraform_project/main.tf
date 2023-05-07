@@ -2,35 +2,35 @@ provider "aws" {
   region = "us-west-2"
 }
 
-# Create a VPC
+# Creating a VPC
 resource "aws_vpc" "my_vpc" {
   cidr_block = "10.0.0.0/16"
 }
 
-# Create a public subnet within the VPC
+# Creating a public subnet within the VPC
 resource "aws_subnet" "public_subnet" {
   vpc_id     = aws_vpc.my_vpc.id
   cidr_block = "10.0.1.0/24"
 }
 
-# Create an internet gateway
+# Creating an internet gateway
 resource "aws_internet_gateway" "my_igw" {
   vpc_id = aws_vpc.my_vpc.id
 }
 
-# Create a route table
+# Creating a route table
 resource "aws_route_table" "my_route_table" {
   vpc_id = aws_vpc.my_vpc.id
 }
 
-# Create a route to the internet gateway
+# Creating a route to the internet gateway
 resource "aws_route" "my_route" {
   route_table_id         = aws_route_table.my_route_table.id
   destination_cidr_block = "0.0.0.0/0"
   gateway_id             = aws_internet_gateway.my_igw.id
 }
 
-# Create a security group
+# Creating a security group
 resource "aws_security_group" "my_sg" {
   name_prefix = "my_sg"
   vpc_id      = aws_vpc.my_vpc.id
@@ -43,7 +43,7 @@ resource "aws_security_group" "my_sg" {
   }
 }
 
-# Launch an EC2 instance with a web server in the public subnet
+# Creating EC2 instance with a web server
 resource "aws_instance" "my_ec2_instance" {
   ami           = "ami-04e914639d0cca79a"
   instance_type = "t2.micro"
