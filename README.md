@@ -46,6 +46,10 @@ To use this project, you need the following:
  - The Pulumi AWS Python SDK installed
 
  ## Usage
+ - Navigate to Pulumi Project folder
+ ```bash
+ cd pulumi_project
+ ```
  - Deploy the Pulumi program to create the AWS infrastructure:
  ```bash 
  pulumi up
